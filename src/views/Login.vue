@@ -19,13 +19,14 @@
                 <img src="../assets/foto-perfil.png" alt="" width="70%" />
               </div>
               <div class="form-group">
-                <label for="email" class="text-white"><b>Email:</b></label>
+                <label for="username" class="text-white"><b>Apelido:</b></label>
                 <input
-                  type="email"
-                  name="email"
-                  id="email"
+                  type="username"
+                  name="username"
+                  id="username"
+                  v-model="usuario.username"
                   class="form-control"
-                  placeholder="Digite seu email aqui "
+                  placeholder="Digite seu username aqui "
                 />
               </div>
               <div class="form-group">
@@ -34,6 +35,7 @@
                   type="password"
                   name="password"
                   id="password"
+                  v-model="usuario.password"
                   class="form-control"
                   placeholder="Digite sua senha aqui "
                 />
@@ -45,7 +47,7 @@
               <button
                 type="button"
                 class="col p-8 btn btn-outline bg text d-flex justify-content-center text-white"
-                @click="login()"
+                @click="logar()"
               >
                 Login
               </button>
@@ -58,8 +60,33 @@
 </template>
 
 <script>
+import { mapActions, mapMutations } from "vuex";
+
 export default {
-  data: () => ({}),
+  created() {
+    this.unsetHeaders();
+  },
+  data: () => ({
+    usuario: {},
+    show: false,
+  }),
+  methods: {
+    ...mapMutations("auth", ["unsetHeaders"]),
+    ...mapActions("auth", ["login"]),
+
+    async logar() {
+      try {
+        await this.login(this.usuario);
+        this.$router.push({ path: "/" });
+      } catch (e) {
+        this.errorLogin = true;
+        console.log(e);
+      }
+    },
+    cadastrar() {
+      this.$router.push({ name: "CadastroView" });
+    },
+  },
 };
 </script>
 
