@@ -5,6 +5,12 @@ import store from "./store";
 
 import "./plugins/axios";
 
+import BootstrapVue from "bootstrap-vue/dist/bootstrap-vue.esm";
+import "bootstrap-vue/dist/bootstrap-vue.css";
+import "bootstrap/dist/css/bootstrap.css";
+
+Vue.use(BootstrapVue);
+
 Vue.prototype.$store = store;
 Vue.config.productionTip = false;
 

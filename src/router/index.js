@@ -10,6 +10,9 @@ const routes = [
   {
     path: "/",
     component: () => import("@/layouts/Default"),
+    meta: {
+      // auth: true,
+    },
     children: [
       {
         path: "",
@@ -36,6 +39,9 @@ const routes = [
   {
     path: "/",
     component: () => import("@/layouts/Blank"),
+    meta: {
+      auth: false,
+    },
     children: [
       {
         path: "/login",

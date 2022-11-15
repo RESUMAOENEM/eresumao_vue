@@ -1,58 +1,47 @@
 <template>
-  <div>
-    <Cabecalho />
-    <section>
-      <div class="d-flex" id="icon-wrapper">
-        <a>
-          <img
-            class="slide-png"
-            alt="2019"
-            height="150%"
-            src="../assets/2019.png"
-          />
-        </a>
-        <a>
-          <img
-            class="slide-png"
-            alt="2020"
-            height="150%"
-            src="../assets/2020.png"
-          />
-        </a>
-        <a href="resumos teste.html">
-          <img
-            class="slide-png"
-            alt="2021"
-            height="150%"
-            src="../assets/2021.png"
-          />
-        </a>
-      </div>
-    </section>
-    <div>
-      <li>
-        <h1 class="d-flex color">
-          Confira os resumos das três edições anteriores do ENEM
-        </h1>
-      </li>
-      <li>
-        <h5 class="d-flex color">
-          Resumos completos e tudo o que você precisa para alcançar a sua
-          aprovação
-        </h5>
-      </li>
+  <nav class="navbar navbar-expand-custom navbar-mainbg">
+    <div class="col-15 p-40">
+      <a class="navbar-brand navbar-logo-center col-15" href="#">
+        <img src="../assets/home.png" alt="" width="70%" />
+      </a>
     </div>
-  </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <li class="nav-item"></li>
+      <a
+        class="nav-item nav-link palavra list-group-item list-group-item-action bg-white center text h5"
+        href="home.html"
+      >
+        Home
+      </a>
+      <br />
+      <a
+        class="palavra list-group-item list-group-item-action bg-transparent text-white h5 text-center"
+        href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiZp5a08rPxAhWHlJUCHZiPBrkQFjAAegQIBRAD&url=https%3A%2F%2Fwww.google.com%2Fcalendar&usg=AOvVaw3DL1RYwWlxKdNRzzOWi7iZ"
+      >
+        Agenda
+      </a>
+      <a
+        href="https://keep.google.com/"
+        class="palavra list-group-item list-group-item-action bg-transparent text-white text-center h5"
+      >
+        Anotações
+      </a>
+      <a
+        class="palavra list-group-item list-group-item-action bg-transparent text-white text-center h5"
+        >Perfil
+      </a>
+      <a
+        @click="logout()"
+        class="palavra list-group-item list-group-item-action bg-transparent text-white text-center h5"
+        >Sair
+      </a>
+    </div>
+  </nav>
 </template>
 
 <script>
-import Cabecalho from "../components/Cabecalho.vue";
-
 export default {
-  name: "Home",
-  componets: {
-    Cabecalho,
-  },
+  name: "Cabecalho",
   data: () => ({}),
 };
 </script>
