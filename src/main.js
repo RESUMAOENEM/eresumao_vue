@@ -3,13 +3,18 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 
+import "./assets/css/style.css";
 import "./plugins/axios";
 
 import BootstrapVue from "bootstrap-vue/dist/bootstrap-vue.esm";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 import "bootstrap/dist/css/bootstrap.css";
 
+import VueSweetalert2 from "vue-sweetalert2";
+import "sweetalert2/dist/sweetalert2.min.css";
+
 Vue.use(BootstrapVue);
+Vue.use(VueSweetalert2);
 
 Vue.prototype.$store = store;
 Vue.config.productionTip = false;

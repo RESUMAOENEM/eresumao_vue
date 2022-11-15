@@ -77,14 +77,20 @@ export default {
     async logar() {
       try {
         await this.login(this.usuario);
-        this.$router.push({ path: "/" });
+        this.$swal({
+          icon: "success",
+          title: "Redirecionando para a página inicial",
+        }).then(() => {
+          setTimeout(() => {
+            this.$router.push({ path: "/" });
+          }, 1000);
+        });
       } catch (e) {
-        this.errorLogin = true;
         console.log(e);
       }
     },
     cadastrar() {
-      this.$router.push({ name: "CadastroView" });
+      this.$router.push({ path: "/cadastro" });
     },
   },
 };

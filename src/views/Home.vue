@@ -1,6 +1,48 @@
 <template>
   <div>
+    <!-- Parte que está no componente Cabecalho -->
+    <nav class="navbar navbar-expand-custom navbar-mainbg">
+      <div class="col-15 p-40">
+        <a class="navbar-brand navbar-logo-center col-15" href="#">
+          <img src="../assets/home.png" alt="" width="70%" />
+        </a>
+      </div>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <li class="nav-item"></li>
+        <a
+          class="nav-item nav-link palavra list-group-item list-group-item-action bg-white center text h5"
+          href="home.html"
+        >
+          Home
+        </a>
+        <br />
+        <a
+          class="palavra list-group-item list-group-item-action bg-transparent text-white h5 text-center"
+          href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiZp5a08rPxAhWHlJUCHZiPBrkQFjAAegQIBRAD&url=https%3A%2F%2Fwww.google.com%2Fcalendar&usg=AOvVaw3DL1RYwWlxKdNRzzOWi7iZ"
+        >
+          Agenda
+        </a>
+        <a
+          href="https://keep.google.com/"
+          class="palavra list-group-item list-group-item-action bg-transparent text-white text-center h5"
+        >
+          Anotações
+        </a>
+        <a
+          class="palavra list-group-item list-group-item-action bg-transparent text-white text-center h5"
+          >Perfil
+        </a>
+        <a
+          @click="logout()"
+          class="palavra list-group-item list-group-item-action bg-transparent text-white text-center h5"
+          >Sair
+        </a>
+      </div>
+    </nav>
+    <!-- Parte que está no componente Cabecalho -->
+
     <Cabecalho />
+
     <section>
       <div class="d-flex" id="icon-wrapper">
         <a>
@@ -58,106 +100,7 @@ export default {
 </script>
 
 <style scoped>
-@import url("https://fonts.googleapis.com/css?family=Nunito:400,700");
-
-body {
-  font-family: "Times New Roman", Times, serif;
-  background-color: rgb(255, 255, 255);
-}
-
-#page {
-  overflow-x: hidden;
-}
-
-#page.toggled #sidebar {
-  margin-left: -15rem;
-}
-
-#sidebar {
-  background-color: #3a5984;
-  min-height: 100vh;
-  margin-left: 0;
-  width: 15rem;
-  -webkit-transition: margin 0.3s ease-out;
-  -moz-transition: margin 0.3s ease-out;
-  -o-transition: margin 0.3s ease-out;
-  transition: margin 0.3s ease-out;
-}
-
-#sidebar header {
-  padding: 0.875rem 1.25rem;
-  font-size: 1.2rem;
-}
-
-#page-content {
-  min-width: 0;
-  width: 100%;
-  width: 100%;
-}
-
-.cor {
-  color: #3a5984;
-}
-.texto {
-  color: #3a5984;
-}
-.color {
-  color: rgb(162, 159, 163);
-}
-.palavra {
-  color: rgb(162, 159, 163);
-}
-
-.col-15 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.palavra list-group-item list-group-item-action bg-dark h5 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.navbar-mainbg {
-  background-color: #3a5984;
-}
-
-.ui-menu {
-  width: 150px;
-}
-#sidebar {
-  background-color: #3a5984;
-}
-
-.center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.navbar-brand {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.reino {
-  float: left;
-  width: 100px;
-  height: 50px;
-}
-
-.icon-wrapper {
-  height: 10px;
-}
+@charset "UTF-8";
 
 @import url("https://fonts.googleapis.com/css2?family=Aboreto&display=swap");
 
