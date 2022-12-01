@@ -19,7 +19,7 @@
                 <img src="../assets/foto-perfil.png" alt="" width="70%" />
               </div>
               <div class="form-group">
-                <label for="username" class="text-white"><b>Apelido:</b></label>
+                <label for="username" class="text-white"><b>Email:</b></label>
                 <input
                   type="username"
                   name="username"
