@@ -9,39 +9,46 @@
       </div>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <li class="nav-item"></li>
-        <a
+        <button
           class="nav-item nav-link palavra list-group-item list-group-item-action bg-white center text h5"
           href="home.html"
         >
           Home
-        </a>
+        </button>
         <br />
-        <a
+        <button
           class="palavra list-group-item list-group-item-action bg-transparent text-white h5 text-center"
           href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiZp5a08rPxAhWHlJUCHZiPBrkQFjAAegQIBRAD&url=https%3A%2F%2Fwww.google.com%2Fcalendar&usg=AOvVaw3DL1RYwWlxKdNRzzOWi7iZ"
         >
           Agenda
-        </a>
-        <a
+        </button>
+        <button
           href="https://keep.google.com/"
+          target="_blank"
           class="palavra list-group-item list-group-item-action bg-transparent text-white text-center h5"
         >
           Anotações
-        </a>
-        <a
+        </button>
+        <button
           class="palavra list-group-item list-group-item-action bg-transparent text-white text-center h5"
-          >Perfil
-        </a>
-        <a
+        >
+          <router-link
+            to="/perfil"
+            style="text-decoration: none; color: inherit"
+            >Perfil</router-link
+          >
+        </button>
+        <button
           @click="logout()"
           class="palavra list-group-item list-group-item-action bg-transparent text-white text-center h5"
-          >Sair
-        </a>
+        >
+          Sair
+        </button>
       </div>
     </nav>
     <!-- Parte que está no componente Cabecalho -->
 
-    <Cabecalho />
+    <!-- <Cabecalho /> -->
 
     <section>
       <div class="d-flex" id="icon-wrapper">
@@ -88,14 +95,23 @@
 </template>
 
 <script>
-import Cabecalho from "../components/Cabecalho.vue";
+import { mapActions } from "vuex";
+// import Cabecalho from "../components/Cabecalho.vue";
 
 export default {
   name: "Home",
-  componets: {
-    Cabecalho,
-  },
   data: () => ({}),
+  methods: {
+    ...mapActions("auth", ["logout"]),
+
+    async sair() {
+      try {
+        await this.logout(this.usuario);
+      } catch (e) {
+        console.log(e);
+      }
+    },
+  },
 };
 </script>
 
@@ -116,7 +132,6 @@ body {
 i {
   margin-right: 10px;
 }
-
 .navbar-logo {
   padding: 20px;
   color: #fff;

@@ -10,7 +10,7 @@ export const auth = {
   }),
   mutations: {
     setToken(state, userToken) {
-      state.token = userToken.access;
+      state.token = userToken.access_token;
       state.loggedIn = true;
     },
     setLoginInfo(state, userForm) {
@@ -26,10 +26,13 @@ export const auth = {
       state.loggedIn = false;
       state.token = null;
       state.user = null;
-      location.reload();
     },
   },
   actions: {
+    async getUser({ commit }) {
+      const userForm = await authService.get();
+      commit("setLoginInfo", userForm);
+    },
     async login({ dispatch, commit }, userForm) {
       try {
         const userToken = await authService.login(userForm);
@@ -42,17 +45,24 @@ export const auth = {
         return Promise.reject(e);
       }
     },
-    async register({ dispatch }, userForm) {
+    async register({ dispatch, commit }, userForm) {
       try {
-        await authService.register(userForm);
-        await dispatch("login", userForm);
+        const userToken = await authService.register(userForm);
+        commit("setToken", userToken);
+        commit("setHeaders");
+        dispatch("getUser");
+        return Promise.resolve(userToken);
       } catch (e) {
         return Promise.reject(e);
       }
     },
-    async getUser({ commit }) {
-      const userForm = await authService.get();
-      commit("setLoginInfo", userForm);
+    async changeUserPassword({ dispatch }, newPassword) {
+      try {
+        await authService.changePassword(newPassword);
+        await dispatch("getUser");
+      } catch (e) {
+        return Promise.reject(e);
+      }
     },
     async updateUser({ dispatch }, newUser) {
       try {
@@ -62,25 +72,15 @@ export const auth = {
         return Promise.reject(e);
       }
     },
-    async updateUserUsername({ dispatch }, newUsername) {
-      try {
-        await authService.updateUsername(newUsername);
-        await dispatch("getUser");
-      } catch (e) {
-        return Promise.reject(e);
-      }
+    async logout({ commit }) {
+      await authService.logout();
+      commit("setLogout");
+      location.reload();
     },
-    async updateUserPassword({ commit }, newPassword) {
+    async deleteUser({ commit }) {
       try {
-        await authService.updatePassword(newPassword);
-        commit("setLogout");
-      } catch (e) {
-        return Promise.reject(e);
-      }
-    },
-    async deleteUser({ commit }, delUser) {
-      try {
-        await authService.deleteUserAccount(delUser);
+        const inactivatedUser = { is_active: false };
+        await authService.delete(inactivatedUser);
         commit("setLogout");
       } catch (e) {
         return Promise.reject(e);

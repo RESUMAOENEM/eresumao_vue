@@ -19,12 +19,15 @@
                 <img src="../assets/foto-perfil.png" alt="" width="70%" />
               </div>
               <div class="form-group">
-                <label for="username" class="text-white"><b>Email:</b></label>
+                <label for="username" class="text-white"
+                  ><b>Nome de usuário:</b></label
+                >
                 <input
                   type="username"
                   name="username"
                   id="username"
                   v-model="usuario.username"
+                  @keyup.enter="logar()"
                   class="form-control"
                   placeholder="Digite seu username aqui "
                 />
@@ -36,6 +39,7 @@
                   name="password"
                   id="password"
                   v-model="usuario.password"
+                  @keyup.enter="logar()"
                   class="form-control"
                   placeholder="Digite sua senha aqui "
                 />
@@ -88,9 +92,6 @@ export default {
       } catch (e) {
         console.log(e);
       }
-    },
-    cadastrar() {
-      this.$router.push({ path: "/cadastro" });
     },
   },
 };

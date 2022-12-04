@@ -2,29 +2,30 @@ import axios from "axios";
 
 class AuthService {
   async register(user) {
-    const { data } = await axios.post("auth/users/", user);
+    const { data } = await axios.post("auth/registration/", user);
     return data;
   }
   async login(user) {
-    const { data } = await axios.post("auth/jwt/create/", user);
+    const { data } = await axios.post("auth/login/", user);
     return data;
   }
   async get() {
-    const { data } = await axios.get("auth/users/me/");
+    const { data } = await axios.get("auth/user/");
     return data;
   }
+  async changePassword(newPassword) {
+    await axios.post("auth/password/change/", newPassword);
+  }
   async update(newUser) {
-    await axios.patch("auth/users/me/", newUser);
+    await axios.patch("auth/user/", newUser);
   }
-  async updateUsername(newUsername) {
-    await axios.post("auth/users/set_username/", newUsername);
+  async logout() {
+    const { data } = await axios.post("auth/logout/");
+    return data;
   }
-  async updatePassword(newPassword) {
-    await axios.post("auth/users/set_password/", newPassword);
-  }
-  async deleteUserAccount(delUser) {
-    console.log(delUser);
-    await axios.delete("auth/users/me/", delUser);
+  async delete(inactivatedUser) {
+    console.log(inactivatedUser);
+    await axios.patch("auth/user/", inactivatedUser);
   }
 }
 

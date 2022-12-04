@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- Parte que está no componente Cabecalho -->
     <nav class="navbar navbar-expand-custom navbar-mainbg">
       <div class="col-15 p-40">
         <a class="navbar-brand navbar-logo-center col-15" href="#">
@@ -8,37 +9,47 @@
       </div>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <li class="nav-item"></li>
-        <a
+        <button
           class="nav-item nav-link palavra list-group-item list-group-item-action bg-white center text h5"
           href="home.html"
         >
           Home
-        </a>
+        </button>
         <br />
-        <a
+        <button
           class="palavra list-group-item list-group-item-action bg-transparent text-white h5 text-center"
           href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiZp5a08rPxAhWHlJUCHZiPBrkQFjAAegQIBRAD&url=https%3A%2F%2Fwww.google.com%2Fcalendar&usg=AOvVaw3DL1RYwWlxKdNRzzOWi7iZ"
         >
           Agenda
-        </a>
-        <a
+        </button>
+        <button
           href="https://keep.google.com/"
+          target="_blank"
           class="palavra list-group-item list-group-item-action bg-transparent text-white text-center h5"
         >
           Anotações
-        </a>
-        <a
+        </button>
+        <button
           class="palavra list-group-item list-group-item-action bg-transparent text-white text-center h5"
-          >Perfil
-        </a>
-        <a
+        >
+          <router-link
+            to="/perfil"
+            style="text-decoration: none; color: inherit"
+            >Perfil</router-link
+          >
+        </button>
+        <button
           @click="logout()"
           class="palavra list-group-item list-group-item-action bg-transparent text-white text-center h5"
-          >Sair
-        </a>
+        >
+          Sair
+        </button>
       </div>
     </nav>
-    <Cabecalho />
+    <!-- Parte que está no componente Cabecalho -->
+
+    <!-- <Cabecalho /> -->
+
     <div class="container-fluid">
       <div class="card">
         <div class="card-body">
@@ -53,6 +64,8 @@
                 id="inputFirstName"
                 type="text"
                 class="form-control"
+                v-model="usuario.first_name"
+                @keyup.enter="salvarPerfil()"
                 placeholder="Digite seu Nome aqui "
               />
               <br />
@@ -63,6 +76,8 @@
                 id="inputLastName"
                 type="text"
                 class="form-control"
+                v-model="usuario.last_name"
+                @keyup.enter="salvarPerfil()"
                 placeholder="Digite seu Sobrenome aqui "
               />
             </div>
@@ -71,7 +86,7 @@
             <button
               type="button"
               class="btn btn-outline-dark bg-light"
-              onclick="saveProfile()"
+              @click="salvarPerfil()"
             >
               Salvar Perfil
             </button>
@@ -83,13 +98,42 @@
 </template>
 
 <script>
-import Cabecalho from "../components/Cabecalho.vue";
+import { mapActions, mapState } from "vuex";
+// import Cabecalho from "../components/Cabecalho.vue";
 
 export default {
-  componets: {
-    Cabecalho,
+  // componets: {
+  //   Cabecalho,
+  // },
+  created() {
+    this.usuario = { ...this.user };
   },
-  data: () => ({}),
+  data: () => ({
+    usuario: {},
+  }),
+  computed: {
+    ...mapState("auth", ["user"]),
+  },
+  methods: {
+    ...mapActions("auth", ["updateUser", "logout"]),
+
+    async salvarPerfil() {
+      try {
+        if (this.usuario.username == this.user.username)
+          delete this.usuario.username;
+        await this.updateUser(this.usuario);
+      } catch (e) {
+        console.log(e);
+      }
+    },
+    async sair() {
+      try {
+        await this.logout(this.usuario);
+      } catch (e) {
+        console.log(e);
+      }
+    },
+  },
 };
 </script>
 
