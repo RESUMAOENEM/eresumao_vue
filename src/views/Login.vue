@@ -1,7 +1,7 @@
 <template>
-  <div class="container-fluid col-50 p-7">
+  <div class="d-flex">
     <div class="row d-flex">
-      <div class="col-10 offset-1 bg-white shadow mb-5 border border-raius">
+      <div class="offset-1 bg-white shadow border border-raius">
         <div class="row">
           <div
             id="loginLogo"
@@ -13,7 +13,7 @@
               width="110%"
             />
           </div>
-          <div class="col-6 p-5 color">
+          <div class="col-6 p-5 color rnd">
             <div id="loginForm">
               <div class="col-14 p-2 d-flex justify-content-center">
                 <img src="../assets/foto-perfil.png" alt="" width="70%" />
@@ -49,8 +49,9 @@
               <br />
 
               <button
+                
                 type="button"
-                class="col p-8 btn btn-outline bg text d-flex justify-content-center text-white"
+                class="col p-8 btn btn-outline bg text d-flex justify-content-center text-white testing"
                 @click="logar()"
               >
                 Login
@@ -186,7 +187,16 @@ input {
   height: 100%;
   transition: all 0.6s ease-in-out;
 }
+.form-group{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  width: 30vw;
+  height: 10vh; 
+  flex-direction: column;
 
+}
 .sign-in-container {
   left: 0;
   width: 50%;
@@ -279,7 +289,14 @@ body {
 #LoginLogo img {
   width: 70%;
 }
-
+#username{
+  background: white;
+  color: #3a5984;
+}
+#password{
+  background: white;
+  color: #3a5984;
+}
 .ip {
   justify-content: center;
 }
@@ -296,5 +313,20 @@ body {
 
 .bg {
   background-color: #6286b8;
+}
+
+.testing{
+  justify-content: center;
+  align-content: center;
+  width: 10vw;
+  height: 10vh;
+}
+#loginForm{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  padding-bottom: 10vh;
 }
 </style>

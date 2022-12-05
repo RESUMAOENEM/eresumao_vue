@@ -55,7 +55,6 @@
         <div class="card-body">
           <h1 class="cor card-title mt-4"><b>Meu Usuário</b></h1>
           <h6 id="userInfo" class="color card-subtitle mb-5">
-            Cadastre uas informações logo a baixo
           </h6>
           <form>
             <div class="cor form-grup">
