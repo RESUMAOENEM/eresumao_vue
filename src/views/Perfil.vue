@@ -10,10 +10,14 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <li class="nav-item"></li>
         <button
-          class="palavra list-group-item list-group-item-action bg-transparent text-white h5 text-center"
-          href="home.html"
-        >
-          Home
+          class="palavra list-group-item list-group-item-action bg-transparent text-white h5 text-center">
+          <router-link
+            href="bloco.html"
+            to="/bloco"
+            style="text-decoration: none; color: inherit"
+            >bloco de notas</router-link
+          >
+
         </button>
         <br />
         <button
@@ -79,19 +83,20 @@
               <input
                 id="inputFirstName"
                 type="text"
-                class="form-control mb-50 mt-4"
+                class="p-2 col-8 mt-8 center"
                 v-model="usuario.first_name"
                 @keyup.enter="salvarPerfil()"
                 placeholder="Digite seu Nome aqui "
               />
               <br />
             </div>
+            <label for="inputFirstName">Nome</label>
             <div class="cor form-grup">
-              <label for="inputLastName">Sobrenome</label>
+              <label class="" for="inputLastName">Sobrenome</label>
               <input
                 id="inputLastName"
                 type="text"
-                class="form-control center"
+                class=" center p-2 col-8 mt-8"
                 v-model="usuario.last_name"
                 @keyup.enter="salvarPerfil()"
                 placeholder="Digite seu Sobrenome aqui "
