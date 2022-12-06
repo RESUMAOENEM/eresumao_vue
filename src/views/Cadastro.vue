@@ -1,7 +1,7 @@
 <template>
-  <div class="container-fluid col-50 p-7">
+  <div class="d-flex">
     <div class="row d-flex">
-      <div class="col-10 offset-1 bg-white shadow mb-5 border border-raius">
+      <div class="offset-1 bg-white shadow border border-raius">
         <div class="row">
           <div
             id="loginLogo"
@@ -13,50 +13,78 @@
               width="110%"
             />
           </div>
-          <div class="col-6 p-5 color">
+          <div class="col-6 p-5 color rnd">
             <div id="loginForm">
               <div class="col-14 p-2 d-flex justify-content-center">
                 <img src="../assets/foto-perfil.png" alt="" width="70%" />
               </div>
               <div class="form-group">
-                <label for="username" class="text-white"><b>Nome:</b></label>
+                <label for="username" class="text-white"
+                  ><b>Nome de usuário:</b></label
+                >
                 <input
                   type="username"
                   name="username"
                   id="username"
                   v-model="usuario.username"
+                  @keyup.enter="cadastrar()"
                   class="form-control"
                   placeholder="Digite seu username aqui "
                 />
               </div>
               <div class="form-group">
                 <label for="password" class="text-white"><b>Senha:</b></label>
-                <input
-                  type="password"
-                  name="password1"
-                  id="password1"
-                  v-model="usuario.password1"
-                  class="form-control"
-                  placeholder="Digite sua senha aqui "
-                />
+                <b-row class="d-flex align-items-center">
+                  <b-form-input
+                    :type="show1 ? 'text' : 'password'"
+                    name="password1"
+                    id="password1"
+                    style="width: 300px"
+                    v-model="usuario.password1"
+                    @keyup.enter="cadastrar()"
+                    class="form-control"
+                    placeholder="Confirme sua senha aqui "
+                  >
+                  </b-form-input>
+                  <b-icon
+                    @click="show1 = !show1"
+                    :icon="show1 ? 'eye' : 'eye-slash'"
+                    style="width: 20px; height: 20px"
+                    color="white"
+                    scale="1.5"
+                  ></b-icon>
+                </b-row>
               </div>
               <div class="form-group">
                 <label for="password" class="text-white"
-                  ><b>Confirme senha:</b></label
+                  ><b>Confirmação de Senha:</b></label
                 >
-                <input
-                  type="password"
-                  name="password2"
-                  id="password2"
-                  v-model="usuario.password2"
-                  class="form-control"
-                  placeholder="Digite sua senha aqui "
-                />
+                <b-row class="d-flex align-items-center">
+                  <b-form-input
+                    :type="show2 ? 'text' : 'password'"
+                    name="password2"
+                    id="password2"
+                    style="width: 300px"
+                    v-model="usuario.password2"
+                    @keyup.enter="cadastrar()"
+                    class="form-control"
+                    placeholder="Confirme sua senha aqui "
+                  >
+                  </b-form-input>
+                  <b-icon
+                    @click="show2 = !show2"
+                    :icon="show2 ? 'eye' : 'eye-slash'"
+                    style="width: 20px; height: 20px"
+                    color="white"
+                    scale="1.5"
+                  ></b-icon>
+                </b-row>
               </div>
+              <br />
 
               <button
                 type="button"
-                class="col p-8 btn btn-outline bg text d-flex justify-content-center text-white"
+                class="col p-8 btn btn-outline bg text d-flex justify-content-center text-white testing"
                 @click="cadastrar()"
               >
                 Cadastrar
@@ -78,7 +106,8 @@ export default {
   },
   data: () => ({
     usuario: {},
-    show: false,
+    show1: false,
+    show2: false,
   }),
   methods: {
     ...mapMutations("auth", ["unsetHeaders"]),
@@ -192,7 +221,15 @@ input {
   height: 100%;
   transition: all 0.6s ease-in-out;
 }
-
+.form-group {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  width: 30vw;
+  height: 10vh;
+  flex-direction: column;
+}
 .sign-in-container {
   left: 0;
   width: 50%;
@@ -285,7 +322,18 @@ body {
 #LoginLogo img {
   width: 70%;
 }
-
+#username {
+  background: white;
+  color: #3a5984;
+}
+#password1 {
+  background: white;
+  color: #3a5984;
+}
+#password2 {
+  background: white;
+  color: #3a5984;
+}
 .ip {
   justify-content: center;
 }
@@ -302,5 +350,20 @@ body {
 
 .bg {
   background-color: #6286b8;
+}
+
+.testing {
+  justify-content: center;
+  align-content: center;
+  width: 10vw;
+  height: 10vh;
+}
+#loginForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  padding-bottom: 10vh;
 }
 </style>
