@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div>
     <h1 class="pa-4 white--text" fluid>
       Bandas
@@ -14,6 +14,16 @@
         </v-col>
       </v-row>
     </v-container>
+  </div>
+</template> -->
+
+<template>
+  <div>
+    <nav v-for="resumo in resumos" :key="resumo.id">
+      <div>
+        {{resumos.titulo}}
+      </div>
+    </nav>
   </div>
 </template>
 
