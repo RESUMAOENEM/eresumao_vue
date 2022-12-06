@@ -10,7 +10,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <li class="nav-item"></li>
         <button
-          class="nav-item nav-link palavra list-group-item list-group-item-action bg-white center text h5"
+          class="palavra list-group-item list-group-item-action bg-transparent text-white h5 text-center"
           href="home.html"
         >
           Home
@@ -22,12 +22,29 @@
         >
           Agenda
         </button>
+        <b-nav-item-dropdown text="Resumos" right class="text-white h5 text-center">
+          <b-dropdown-item href="#">Artes</b-dropdown-item>
+          <b-dropdown-item href="#">Biologia</b-dropdown-item>
+          <b-dropdown-item href="#">Educação Física</b-dropdown-item>
+          <b-dropdown-item href="#">Filosofia</b-dropdown-item>
+          <b-dropdown-item href="#">Física</b-dropdown-item>
+          <b-dropdown-item href="#">Geografia</b-dropdown-item>
+          <b-dropdown-item href="#">Língua Estrangeira-Ingles</b-dropdown-item>
+          <b-dropdown-item href="#">Língua Estrangeira-Espanhol</b-dropdown-item>
+          <b-dropdown-item href="#">Língua Português</b-dropdown-item>
+          <b-dropdown-item href="#">Produção de Texto</b-dropdown-item>
+          <b-dropdown-item href="#">Quimíca</b-dropdown-item>
+          <b-dropdown-item href="#">Sociologia</b-dropdown-item>
+        </b-nav-item-dropdown>
         <button
-          href="https://keep.google.com/"
-          target="_blank"
           class="palavra list-group-item list-group-item-action bg-transparent text-white text-center h5"
         >
-          Anotações
+          <router-link
+            href="bloco.html"
+            to="/bloco"
+            style="text-decoration: none; color: inherit"
+            >bloco de notas</router-link
+          >
         </button>
         <button
           class="palavra list-group-item list-group-item-action bg-transparent text-white text-center h5"
@@ -50,10 +67,10 @@
 
     <!-- <Cabecalho /> -->
 
-    <div class="container-fluid">
+    <div class="container-fluid p-5 mb-10">
       <div class="card">
         <div class="card-body">
-          <h1 class="cor card-title mt-4"><b>Meu Usuário</b></h1>
+          <h1 class="cor center card-title mt-4"><b>Meu Usuário</b></h1>
           <h6 id="userInfo" class="color card-subtitle mb-5">
           </h6>
           <form>
@@ -62,7 +79,7 @@
               <input
                 id="inputFirstName"
                 type="text"
-                class="form-control"
+                class="form-control mb-50 mt-4"
                 v-model="usuario.first_name"
                 @keyup.enter="salvarPerfil()"
                 placeholder="Digite seu Nome aqui "
@@ -74,17 +91,16 @@
               <input
                 id="inputLastName"
                 type="text"
-                class="form-control"
+                class="form-control center"
                 v-model="usuario.last_name"
                 @keyup.enter="salvarPerfil()"
                 placeholder="Digite seu Sobrenome aqui "
               />
             </div>
-            <div class="cor"><br />Favoritos:<br /></div>
             <br />
             <button
               type="button"
-              class="btn btn-outline-dark bg-light"
+              class="btn btn-outline-dark bg-light center"  
               @click="salvarPerfil()"
             >
               Salvar Perfil
@@ -353,5 +369,10 @@ section {
 .color {
   text-decoration-color: #3a5984;
   text-emphasis-color: #5a83bb;
+}
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>

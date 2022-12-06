@@ -1,6 +1,6 @@
 <template>
     <div>
-    <nav class="navbar navbar-expand-custom navbar-mainbg">
+        <nav class="navbar navbar-expand-custom navbar-mainbg">
       <div class="col-15 p-40">
         <a class="navbar-brand navbar-logo-center col-15" href="#">
           <img src="../assets/home.png" alt="" width="70%" />
@@ -9,8 +9,8 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <li class="nav-item"></li>
         <button
-          class="nav-item nav-link palavra list-group-item list-group-item-action bg-white center text h5"
-          href="Home.html"
+          class="palavra list-group-item list-group-item-action bg-transparent text-white h5 text-center"
+          href="home.html"
         >
           Home
         </button>
@@ -21,12 +21,29 @@
         >
           Agenda
         </button>
+        <b-nav-item-dropdown text="Resumos" right class="text-white h5 text-center">
+          <b-dropdown-item href="#">Artes</b-dropdown-item>
+          <b-dropdown-item href="#">Biologia</b-dropdown-item>
+          <b-dropdown-item href="#">Educação Física</b-dropdown-item>
+          <b-dropdown-item href="#">Filosofia</b-dropdown-item>
+          <b-dropdown-item href="#">Física</b-dropdown-item>
+          <b-dropdown-item href="#">Geografia</b-dropdown-item>
+          <b-dropdown-item href="#">Língua Estrangeira-Ingles</b-dropdown-item>
+          <b-dropdown-item href="#">Língua Estrangeira-Espanhol</b-dropdown-item>
+          <b-dropdown-item href="#">Língua Português</b-dropdown-item>
+          <b-dropdown-item href="#">Produção de Texto</b-dropdown-item>
+          <b-dropdown-item href="#">Quimíca</b-dropdown-item>
+          <b-dropdown-item href="#">Sociologia</b-dropdown-item>
+        </b-nav-item-dropdown>
         <button
-          href="https://keep.google.com/"
-          target="_blank"
           class="palavra list-group-item list-group-item-action bg-transparent text-white text-center h5"
         >
-          Anotações
+          <router-link
+            href="bloco.html"
+            to="/bloco"
+            style="text-decoration: none; color: inherit"
+            >bloco de notas</router-link
+          >
         </button>
         <button
           class="palavra list-group-item list-group-item-action bg-transparent text-white text-center h5"
