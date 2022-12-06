@@ -4,6 +4,7 @@ import store from "../store";
 import Home from "../views/Home.vue";
 import Login from "../views/Login.vue";
 import Cadastro from "../views/Cadastro.vue";
+import bloco from "../views/bloco.vue";
 
 Vue.use(VueRouter);
 
@@ -24,6 +25,11 @@ const routes = [
         path: "/perfil",
         name: "Perfil",
         component: () => import("../views/Perfil.vue"),
+      },
+      {
+        path: "/bloco",
+        name: "Bloco",
+        component: () => import("../views/bloco.vue"),
       },
       {
         path: "/resumos",

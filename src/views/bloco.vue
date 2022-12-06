@@ -1,6 +1,5 @@
 <template>
-  <div>
-    <!-- Parte que está no componente Cabecalho -->
+    <div>
     <nav class="navbar navbar-expand-custom navbar-mainbg">
       <div class="col-15 p-40">
         <a class="navbar-brand navbar-logo-center col-15" href="#">
@@ -10,8 +9,8 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <li class="nav-item"></li>
         <button
-          class="palavra list-group-item list-group-item-action bg-transparent text-white h5 text-center"
-          href="home.html"
+          class="nav-item nav-link palavra list-group-item list-group-item-action bg-white center text h5"
+          href="Home.html"
         >
           Home
         </button>
@@ -22,29 +21,12 @@
         >
           Agenda
         </button>
-        <b-nav-item-dropdown text="Resumos" right class="text-white h5 text-center">
-          <b-dropdown-item href="#">Artes</b-dropdown-item>
-          <b-dropdown-item href="#">Biologia</b-dropdown-item>
-          <b-dropdown-item href="#">Educação Física</b-dropdown-item>
-          <b-dropdown-item href="#">Filosofia</b-dropdown-item>
-          <b-dropdown-item href="#">Física</b-dropdown-item>
-          <b-dropdown-item href="#">Geografia</b-dropdown-item>
-          <b-dropdown-item href="#">Língua Estrangeira-Ingles</b-dropdown-item>
-          <b-dropdown-item href="#">Língua Estrangeira-Espanhol</b-dropdown-item>
-          <b-dropdown-item href="#">Língua Português</b-dropdown-item>
-          <b-dropdown-item href="#">Produção de Texto</b-dropdown-item>
-          <b-dropdown-item href="#">Quimíca</b-dropdown-item>
-          <b-dropdown-item href="#">Sociologia</b-dropdown-item>
-        </b-nav-item-dropdown>
         <button
+          href="https://keep.google.com/"
+          target="_blank"
           class="palavra list-group-item list-group-item-action bg-transparent text-white text-center h5"
         >
-          <router-link
-            href="bloco.html"
-            to="/bloco"
-            style="text-decoration: none; color: inherit"
-            >bloco de notas</router-link
-          >
+          Anotações
         </button>
         <button
           class="palavra list-group-item list-group-item-action bg-transparent text-white text-center h5"
@@ -63,60 +45,20 @@
         </button>
       </div>
     </nav>
-    <!-- Parte que está no componente Cabecalho -->
-
-    <!-- <Cabecalho /> -->
-
-    <section>
-      <div class="d-flex" id="icon-wrapper">
-        <a>
-          <img
-            class="slide-png"
-            alt="2019"
-            height="150%"
-            src="../assets/2019.png"
-          />
-        </a>
-        <a>
-          <img
-            class="slide-png"
-            alt="2020"
-            height="150%"
-            src="../assets/2020.png"
-          />
-        </a>
-        <a href="resumos teste.html">
-          <img
-            class="slide-png"
-            alt="2021"
-            height="150%"
-            src="../assets/2021.png"
-          />
-        </a>
-      </div>
-    </section>
-    <div>
-      <li>
-        <h1 class="d-flex color">
-          Confira os resumos das três edições anteriores do ENEM
-        </h1>
-      </li>
-      <li>
-        <h5 class="d-flex color">
-          Resumos completos e tudo o que você precisa para alcançar a sua
-          aprovação
-        </h5>
-      </li>
+    <b-form-textarea
+        id="textarea-rows"
+        placeholder="Tall textarea"
+        rows="8"
+    ></b-form-textarea>
     </div>
-  </div>
 </template>
-
+  
 <script>
 import { mapActions } from "vuex";
 // import Cabecalho from "../components/Cabecalho.vue";
 
 export default {
-  name: "Home",
+  name: "bloco",
   data: () => ({}),
   methods: {
     ...mapActions("auth", ["logout"]),
@@ -131,7 +73,6 @@ export default {
   },
 };
 </script>
-
 <style scoped>
 @charset "UTF-8";
 
