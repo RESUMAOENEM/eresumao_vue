@@ -80,20 +80,19 @@
               <input
                 id="inputFirstName"
                 type="text"
-                class="p-2 col-8 mt-8 center"
+                class="p-2 col-12 mt-8 center"
                 v-model="usuario.first_name"
                 @keyup.enter="salvarPerfil()"
                 placeholder="Digite seu Nome aqui "
               />
               <br />
             </div>
-            <label for="inputFirstName">Nome</label>
             <div class="cor form-grup">
               <label class="" for="inputLastName">Sobrenome</label>
               <input
                 id="inputLastName"
                 type="text"
-                class=" center p-2 col-8 mt-8"
+                class="  center p-2 col-12 mt-8"
                 v-model="usuario.last_name"
                 @keyup.enter="salvarPerfil()"
                 placeholder="Digite seu Sobrenome aqui "

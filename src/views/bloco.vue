@@ -64,11 +64,30 @@
         </button>
       </div>
     </nav>
-    <b-form-textarea
-        id="textarea-rows"
-        placeholder="Tall textarea"
-        rows="8"
-    ></b-form-textarea>
+    <div class="container-fluid">
+          <h1 class="mt-4 cor text-center cor">Bloco de Notas.</h1>
+          <br>
+          <h6 id="userInfo" class=" color text-center color card-subtitle mb-5">Escreva suas anotações a baixo</h6>
+          <div class="row">
+            <b-form-textarea
+            id="textarea-rows"
+            placeholder="Escreva aqui"
+            rows="8"
+        ></b-form-textarea>
+            <button class="btn btn-outline-primary ml-1" onclick="addTask()">Adicionar</button>
+          </div>
+          <br>
+          <ul id="itemList" class="list-group list-group-flush">
+            <li class="list-group-item d-flex justify-content-between ">
+              atividade 1
+              <button class="btn btn-outline-primary ">Excluir</button>
+            </li>
+            <li class="list-group-item d-flex justify-content-between ">
+              atividade 2
+              <button class="btn btn-outline-primary">Excluir</button>
+            </li>
+          </ul>
+    </div>
     </div>
 </template>
   
