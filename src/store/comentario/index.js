@@ -1,13 +1,13 @@
-import cometarioService from "@/api/cometario";
+import comentarioService from "@/api/comentario";
 
-export const cometario = {
+export const comentario = {
   namespaced: true,
   state: () => ({
     comentarios: [],
   }),
   mutations: {
-    setComentarios(state, cometarios) {
-      state.comentarios = cometarios;
+    setComentarios(state, comentarios) {
+      state.comentarios = comentarios;
     },
     esvaziarComentarios(state) {
       state.comentarios = [];
@@ -15,12 +15,12 @@ export const cometario = {
   },
   actions: {
     async pegarComentarios({ commit }) {
-      const comentarios = await cometarioService.get();
+      const comentarios = await comentarioService.get();
       commit("setComentarios", comentarios);
     },
     async publicarComentario({ dispatch }, comentario) {
       try {
-        await cometarioService.create(comentario);
+        await comentarioService.create(comentario);
         dispatch("pegarComentarios");
       } catch (e) {
         return Promise.reject(e);
@@ -28,7 +28,7 @@ export const cometario = {
     },
     async atualizarComentario({ dispatch }, { id_comentario, comentario }) {
       try {
-        await cometarioService.update(id_comentario, comentario);
+        await comentarioService.update(id_comentario, comentario);
         dispatch("pegarComentarios");
       } catch (e) {
         return Promise.reject(e);
@@ -36,7 +36,7 @@ export const cometario = {
     },
     async deletarComentario({ dispatch }, id_comentario) {
       try {
-        await cometarioService.delete(id_comentario);
+        await comentarioService.delete(id_comentario);
         dispatch("pegarComentarios");
       } catch (e) {
         return Promise.reject(e);
