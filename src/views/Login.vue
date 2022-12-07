@@ -45,8 +45,15 @@
                 />
               </div>
               <br />
-              <a classs="text-center" href="#">Esqueceu a senha?</a>
-              <br />
+              <button
+                  class="palavra list-group-item list-group-item-action bg-transparent text-white text-center h5"
+              >
+                  <router-link
+                    href="Cadastro.vue"
+                    to="/cadastro"
+                    style="text-decoration: none; color: inherit"
+                  >Não tem cadastro?<br> clique aqui. </router-link>
+              </button>
 
               <button
                 

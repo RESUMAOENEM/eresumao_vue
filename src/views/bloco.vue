@@ -1,6 +1,6 @@
 <template>
     <div>
-        <nav class="navbar navbar-expand-custom navbar-mainbg">
+      <nav class="navbar navbar-expand-custom navbar-mainbg">
       <div class="col-15 p-40">
         <a class="navbar-brand navbar-logo-center col-15" href="#">
           <img src="../assets/home.png" alt="" width="70%" />
@@ -21,28 +21,25 @@
         >
           Agenda
         </button>
-        <b-nav-item-dropdown text="Resumos" right class="text-white h5 text-center">
-          <b-dropdown-item href="#">Artes</b-dropdown-item>
-          <b-dropdown-item href="#">Biologia</b-dropdown-item>
-          <b-dropdown-item href="#">Educação Física</b-dropdown-item>
-          <b-dropdown-item href="#">Filosofia</b-dropdown-item>
-          <b-dropdown-item href="#">Física</b-dropdown-item>
-          <b-dropdown-item href="#">Geografia</b-dropdown-item>
-          <b-dropdown-item href="#">Língua Estrangeira-Ingles</b-dropdown-item>
-          <b-dropdown-item href="#">Língua Estrangeira-Espanhol</b-dropdown-item>
-          <b-dropdown-item href="#">Língua Português</b-dropdown-item>
-          <b-dropdown-item href="#">Produção de Texto</b-dropdown-item>
-          <b-dropdown-item href="#">Quimíca</b-dropdown-item>
-          <b-dropdown-item href="#">Sociologia</b-dropdown-item>
-        </b-nav-item-dropdown>
         <button
           class="palavra list-group-item list-group-item-action bg-transparent text-white text-center h5"
+        >
+          <router-link
+            href="Resumos.vue"
+            to="/resumos"
+            style="text-decoration: none; color: inherit"
+            >Resumos</router-link
+          >
+        </button>
+        <button
+          class="palavra list-group-item list-group-item-action bg-transparent text-white text-center h5 bg-light"
+          variant="light"        
         >
           <router-link
             href="bloco.html"
             to="/bloco"
             style="text-decoration: none; color: inherit"
-            >bloco de notas</router-link
+            >Bloco de Notas</router-link
           >
         </button>
         <button

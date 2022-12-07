@@ -10,14 +10,10 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <li class="nav-item"></li>
         <button
-          class="palavra list-group-item list-group-item-action bg-transparent text-white h5 text-center">
-          <router-link
-            href="bloco.html"
-            to="/bloco"
-            style="text-decoration: none; color: inherit"
-            >bloco de notas</router-link
-          >
-
+          class="palavra list-group-item list-group-item-action bg-transparent text-white h5 text-center"
+          href="home.html"
+        >
+          Home
         </button>
         <br />
         <button
@@ -26,20 +22,16 @@
         >
           Agenda
         </button>
-        <b-nav-item-dropdown text="Resumos" right class="text-white h5 text-center">
-          <b-dropdown-item href="#">Artes</b-dropdown-item>
-          <b-dropdown-item href="#">Biologia</b-dropdown-item>
-          <b-dropdown-item href="#">Educação Física</b-dropdown-item>
-          <b-dropdown-item href="#">Filosofia</b-dropdown-item>
-          <b-dropdown-item href="#">Física</b-dropdown-item>
-          <b-dropdown-item href="#">Geografia</b-dropdown-item>
-          <b-dropdown-item href="#">Língua Estrangeira-Ingles</b-dropdown-item>
-          <b-dropdown-item href="#">Língua Estrangeira-Espanhol</b-dropdown-item>
-          <b-dropdown-item href="#">Língua Português</b-dropdown-item>
-          <b-dropdown-item href="#">Produção de Texto</b-dropdown-item>
-          <b-dropdown-item href="#">Quimíca</b-dropdown-item>
-          <b-dropdown-item href="#">Sociologia</b-dropdown-item>
-        </b-nav-item-dropdown>
+        <button
+          class="palavra list-group-item list-group-item-action bg-transparent text-white text-center h5"
+        >
+          <router-link
+            href="Resumos.vue"
+            to="/resumos"
+            style="text-decoration: none; color: inherit"
+            >Resumos</router-link
+          >
+        </button>
         <button
           class="palavra list-group-item list-group-item-action bg-transparent text-white text-center h5"
         >
