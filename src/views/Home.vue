@@ -39,7 +39,7 @@
             href="bloco.html"
             to="/bloco"
             style="text-decoration: none; color: inherit"
-            >bloco de notas</router-link
+            >Bloco de Notas</router-link
           >
         </button>
         <button

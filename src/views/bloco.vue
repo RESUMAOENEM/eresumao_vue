@@ -9,10 +9,15 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <li class="nav-item"></li>
         <button
-          class="palavra list-group-item list-group-item-action bg-transparent text-white h5 text-center"
-          href="home.html"
+          class="palavra list-group-item list-group-item-action bg-transparent text-white text-center h5 b-badge mr-3"
+         
         >
-          Home
+          <router-link
+            href="Home.vue"
+            to="/home"
+            style="text-decoration: none; color: inherit"
+            >Home</router-link
+          >
         </button>
         <br />
         <button
