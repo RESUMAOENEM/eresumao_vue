@@ -15,14 +15,14 @@ export const resumo = {
   },
   actions: {
     async pegarResumos({ commit }) {
-      const resumos = await resumoService.get();
+      const resumos = await resumoService.buscarResumos();
       commit("setResumos", resumos);
     },
     async pegarResumosPorID({ commit }, id_resumo) {
-      const resumos = await resumoService.getByID(id_resumo);
+      const resumos = await resumoService.buscarResumoPorId(id_resumo);
       commit("setResumos", resumos);
     },
-    async publicarResumo({ dispatch }, resumo) {
+    async criarResumo({ dispatch }, resumo) {
       try {
         await resumoService.create(resumo);
         dispatch("pegarResumos");

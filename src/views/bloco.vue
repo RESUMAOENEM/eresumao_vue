@@ -1,6 +1,6 @@
 <template>
-    <div>
-      <nav class="navbar navbar-expand-custom navbar-mainbg">
+  <div>
+    <nav class="navbar navbar-expand-custom navbar-mainbg">
       <div class="col-15 p-40">
         <a class="navbar-brand navbar-logo-center col-15" href="#">
           <img src="../assets/home.png" alt="" width="70%" />
@@ -10,7 +10,6 @@
         <li class="nav-item"></li>
         <button
           class="palavra list-group-item list-group-item-action bg-transparent text-white text-center h5 b-badge mr-3"
-         
         >
           <router-link
             href="Home.vue"
@@ -38,7 +37,7 @@
         </button>
         <button
           class="palavra list-group-item list-group-item-action bg-transparent text-white text-center h5 bg-light"
-          variant="light"        
+          variant="light"
         >
           <router-link
             href="bloco.html"
@@ -64,42 +63,70 @@
         </button>
       </div>
     </nav>
-    <div class="container-fluid">
-          <h1 class="mt-4 cor text-center cor">Bloco de Notas.</h1>
-          <br>
-          <h6 id="userInfo" class=" color text-center color card-subtitle mb-5">Escreva suas anotações a baixo</h6>
-          <div class="row">
-            <b-form-textarea
-            id="textarea-rows"
-            placeholder="Escreva aqui"
-            rows="8"
+    <b-container class="d-flex flex-column jusrify-content-center">
+      <h1 class="mt-4 cor text-center cor">Bloco de Notas.</h1>
+      <br />
+      <h6 id="userInfo" class="color text-center color card-subtitle mb-5">
+        Escreva seus resumos a baixo
+      </h6>
+      <div class="row">
+        <b-form-input
+          class="m-3"
+          id="textarea-rows"
+          v-model="resumo.titulo"
+          placeholder="Escreva o título aqui"
+          rows="8"
+        ></b-form-input>
+        <b-form-textarea
+          class="m-3"
+          id="textarea-rows"
+          v-model="resumo.conteudo"
+          placeholder="Escreva o conteúdo aqui"
+          rows="8"
         ></b-form-textarea>
-            <button class="btn btn-outline-primary ml-1" onclick="addTask()">Adicionar</button>
-          </div>
-          <br>
-          <ul id="itemList" class="list-group list-group-flush">
-            <li class="list-group-item d-flex justify-content-between ">
-              atividade 1
-              <button class="btn btn-outline-primary ">Excluir</button>
-            </li>
-            <li class="list-group-item d-flex justify-content-between ">
-              atividade 2
-              <button class="btn btn-outline-primary">Excluir</button>
-            </li>
-          </ul>
-    </div>
-    </div>
+        <button class="btn btn-outline-primary" @click="adicionarResumo()">
+          Adicionar
+        </button>
+      </div>
+      <br />
+    </b-container>
+    <b-row>
+      <b-col v-for="oresumo in totalResumos" :key="oresumo.id" cols="3">
+        <b-card class="p-3 mx-2" :title="oresumo.titulo">
+          <br />
+          <b-card-text v-text="oresumo.conteudo"></b-card-text>
+        </b-card>
+      </b-col>
+    </b-row>
+  </div>
 </template>
-  
+
 <script>
-import { mapActions } from "vuex";
-// import Cabecalho from "../components/Cabecalho.vue";
+import { mapActions, mapState } from "vuex";
 
 export default {
   name: "bloco",
-  data: () => ({}),
+  async created() {
+    this.pegarResumos();
+  },
+  data: () => ({
+    resumo: {},
+  }),
+  computed: {
+    ...mapState("resumo", ["totalResumos"]),
+  },
   methods: {
     ...mapActions("auth", ["logout"]),
+    ...mapActions("resumo", ["pegarResumos"]),
+    ...mapActions("resumo", ["criarResumo"]),
+
+    async adicionarResumo() {
+      try {
+        await this.criarResumo(this.resumo);
+      } catch (e) {
+        console.log(e);
+      }
+    },
 
     async sair() {
       try {
@@ -117,9 +144,6 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Aboreto&display=swap");
 
 @import url("https://fonts.googleapis.com/css?family=Roboto");
-
-
-
 
 body {
   font-family: "Roboto", sans-serif;
@@ -323,5 +347,4 @@ section {
   text-decoration-color: #3a5984;
   text-emphasis-color: #5a83bb;
 }
-
 </style>

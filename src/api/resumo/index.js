@@ -5,12 +5,12 @@ class ResumoService {
     const { data } = await axios.post("api/resumos/", resumo);
     return data;
   }
-  async get() {
+  async buscarResumos() {
     const { data } = await axios.get("api/resumos/");
     return data;
   }
-  async getByID(id_resumo) {
-    const { data } = await axios.get("api/resumos/?resumo=" + id_resumo);
+  async buscarResumoPorId(id_resumo) {
+    const { data } = await axios.get(`api/resumos/${id_resumo}/`);
     return data;
   }
   async update(id_resumo, resumo) {

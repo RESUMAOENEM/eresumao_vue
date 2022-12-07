@@ -4,7 +4,7 @@ import store from "../store";
 import Home from "../views/Home.vue";
 import Login from "../views/Login.vue";
 import Cadastro from "../views/Cadastro.vue";
-import bloco from "../views/bloco.vue";
+// import bloco from "../views/bloco.vue";
 
 Vue.use(VueRouter);
 
@@ -20,11 +20,6 @@ const routes = [
         path: "",
         name: "Home",
         component: Home,
-      },
-      {
-        path: "/home",
-        name: "Home",
-        component: () => import("../views/Home.vue"),
       },
       {
         path: "/perfil",
@@ -45,11 +40,6 @@ const routes = [
         path: "/resumos/:id",
         name: "ResumoDetail",
         component: () => import("../views/ResumoDetail.vue"),
-      },
-      {
-        path: "/cadastro/:id",
-        name: "Cadastro",
-        component: () => import("../views/Cadastro.vue"),
       },
     ],
   },
