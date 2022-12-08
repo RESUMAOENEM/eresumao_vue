@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!-- Parte que está no componente Cabecalho -->
     <nav class="navbar navbar-expand-custom navbar-mainbg">
       <div class="col-15 p-40">
         <a class="navbar-brand navbar-logo-center col-15" href="#">
@@ -44,6 +43,7 @@
             >Agenda</router-link
           >
         </button>
+
         <button
           class="
             palavra
@@ -67,7 +67,9 @@
             bg-transparent
             text-white text-center
             h5
+            bg-light
           "
+          variant="light"
         >
           <router-link
             href="bloco.html"
@@ -105,94 +107,9 @@
         </button>
       </div>
     </nav>
-    <!-- Parte que está no componente Cabecalho -->
-
-    <!-- <Cabecalho /> -->
-
-    <div class="container-fluid p-5 mb-10">
-      <div class="card">
-        <div class="card-body">
-          <h1 class="cor center card-title mt-4"><b>Meu Usuário</b></h1>
-          <h6 id="userInfo" class="color card-subtitle mb-5"></h6>
-          <form>
-            <div class="cor form-grup">
-              <label for="inputFirstName">Nome</label>
-              <input
-                id="inputFirstName"
-                type="text"
-                class="p-2 col-12 mt-8 center"
-                v-model="usuario.first_name"
-                @keyup.enter="salvarPerfil()"
-                placeholder="Digite seu Nome aqui "
-              />
-              <br />
-            </div>
-            <div class="cor form-grup">
-              <label class="" for="inputLastName">Sobrenome</label>
-              <input
-                id="inputLastName"
-                type="text"
-                class="center p-2 col-12 mt-8"
-                v-model="usuario.last_name"
-                @keyup.enter="salvarPerfil()"
-                placeholder="Digite seu Sobrenome aqui "
-              />
-            </div>
-            <br />
-            <button
-              type="button"
-              class="btn btn-outline-dark bg-light center"
-              @click="salvarPerfil()"
-            >
-              Salvar Perfil
-            </button>
-          </form>
-        </div>
-      </div>
-    </div>
+    <b-calendar block locale="pt-br"></b-calendar>
   </div>
 </template>
-
-<script>
-import { mapActions, mapState } from "vuex";
-// import Cabecalho from "../components/Cabecalho.vue";
-
-export default {
-  // componets: {
-  //   Cabecalho,
-  // },
-  created() {
-    this.usuario = { ...this.user };
-  },
-  data: () => ({
-    usuario: {},
-  }),
-  computed: {
-    ...mapState("auth", ["user"]),
-  },
-  methods: {
-    ...mapActions("auth", ["updateUser", "logout"]),
-
-    async salvarPerfil() {
-      try {
-        if (this.usuario.username == this.user.username)
-          delete this.usuario.username;
-        await this.updateUser(this.usuario);
-      } catch (e) {
-        console.log(e);
-      }
-    },
-    async sair() {
-      try {
-        await this.logout(this.usuario);
-      } catch (e) {
-        console.log(e);
-      }
-    },
-  },
-};
-</script>
-
 <style scoped>
 @charset "UTF-8";
 
@@ -210,7 +127,6 @@ body {
 i {
   margin-right: 10px;
 }
-
 .navbar-logo {
   padding: 20px;
   color: #fff;
@@ -293,14 +209,6 @@ i {
   left: -25px;
 }
 .hori-selector .right:before,
-.hori-selector .left:before {
-  content: "";
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: #5161ce;
-}
 .hori-selector .right:before {
   bottom: 0;
   right: -25px;
@@ -410,10 +318,5 @@ section {
 .color {
   text-decoration-color: #3a5984;
   text-emphasis-color: #5a83bb;
-}
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 </style>

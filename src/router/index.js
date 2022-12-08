@@ -41,6 +41,16 @@ const routes = [
         name: "ResumoDetail",
         component: () => import("../views/ResumoDetail.vue"),
       },
+      {
+        path: "/agenda",
+        name: "Agenda",
+        component: () => import("../views/Agenda.vue"),
+      },
+      {
+        path: "/home",
+        name: "Home",
+        component: () => import("../views/Home.vue"),
+      },
     ],
   },
   {

@@ -9,7 +9,15 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <li class="nav-item"></li>
         <button
-          class="palavra list-group-item list-group-item-action bg-transparent text-white text-center h5 b-badge mr-3"
+          class="
+            palavra
+            list-group-item list-group-item-action
+            bg-transparent
+            text-white text-center
+            h5
+            b-badge
+            mr-3
+          "
         >
           <router-link
             href="Home.vue"
@@ -20,33 +28,63 @@
         </button>
         <br />
         <button
-          class="palavra list-group-item list-group-item-action bg-transparent text-white h5 text-center"
-          href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiZp5a08rPxAhWHlJUCHZiPBrkQFjAAegQIBRAD&url=https%3A%2F%2Fwww.google.com%2Fcalendar&usg=AOvVaw3DL1RYwWlxKdNRzzOWi7iZ"
+          class="
+            palavra
+            list-group-item list-group-item-action
+            bg-transparent
+            text-white text-center
+            h5
+          "
         >
-          Agenda
+          <router-link
+            href="Agenda.vue"
+            to="/agenda"
+            style="text-decoration: none; color: inherit"
+            >Agenda</router-link
+          >
         </button>
         <button
-          class="palavra list-group-item list-group-item-action bg-transparent text-white text-center h5 b-badge mr-3"
+          class="
+            palavra
+            list-group-item list-group-item-action
+            bg-transparent
+            text-white text-center
+            h5
+            b-badge
+            mr-3
+          "
         >
           <router-link
             href="Resumos.vue"
             to="/resumos"
             style="text-decoration: none; color: inherit"
-            >Resumos</router-link
+            >Bloco de Notas</router-link
           >
         </button>
         <button
-          class="palavra list-group-item list-group-item-action bg-transparent text-white text-center h5"
+          class="
+            palavra
+            list-group-item list-group-item-action
+            bg-transparent
+            text-white text-center
+            h5
+          "
         >
           <router-link
             href="bloco.html"
             to="/bloco"
             style="text-decoration: none; color: inherit"
-            >Bloco de Notas</router-link
+            >Resumos</router-link
           >
         </button>
         <button
-          class="palavra list-group-item list-group-item-action bg-transparent text-white text-center h5"
+          class="
+            palavra
+            list-group-item list-group-item-action
+            bg-transparent
+            text-white text-center
+            h5
+          "
         >
           <router-link
             to="/perfil"
@@ -56,235 +94,45 @@
         </button>
         <button
           @click="logout()"
-          class="palavra list-group-item list-group-item-action bg-transparent text-white text-center h5"
+          class="
+            palavra
+            list-group-item list-group-item-action
+            bg-transparent
+            text-white text-center
+            h5
+          "
         >
           Sair
         </button>
       </div>
     </nav>
-    <div>
-      <div>
-        <h1 class="pa-4 white--text">Resumos</h1>
-
-        <b-container>
-          <b-row>
-            <b-col v-for="(resumo, index) in resumos" :key="index" cols="3">
-              <b-card>
-                <b-card-text v-text="resumo.titulo"></b-card-text>
-                <b-card-text v-text="resumo.conteudo"></b-card-text>
-              </b-card>
-            </b-col>
-          </b-row>
-        </b-container>
+    <div class="container-fluid">
+      <h1 class="mt-4 cor text-center cor">Bloco de notas</h1>
+      <br />
+      <h6 id="userInfo" class="color text-center color card-subtitle mb-5">
+        Escreva suas anotações a baixo
+      </h6>
+      <div class="row">
+        <b-form-textarea
+          id="textarea-rows"
+          placeholder="Escreva aqui"
+          rows="8"
+        ></b-form-textarea>
+        <button class="btn btn-outline-primary ml-1" onclick="addTask()">
+          Adicionar
+        </button>
       </div>
-      <!-- Materia artes-->
-      <div class="col-5 p-1 d-flex justify-content-center">
-        <img src="../assets/Cópia de ERESUMAO.png" alt="" width="10%" />
-        <b-dropdown
-          id="dropdown-dropright"
-          dropright
-          text="Artes"
-          variant="primary"
-          class="center m-3"
-        >
-          <b-dropdown-item href="#">Arte Contemporanea</b-dropdown-item>
-          <b-dropdown-item href="#">Arte nos Séculos XV e XVI</b-dropdown-item>
-          <b-dropdown-item href="#">Artes Plasticas</b-dropdown-item>
-        </b-dropdown>
-      </div>
-      <!-- Materia Biologia -->
-      <div class="col-5 p-1 d-flex justify-content-center">
-        <img src="../assets/Cópia de ERESUMAO.png" alt="" width="10%" />
-        <b-dropdown
-          id="dropdown-dropright"
-          dropright
-          text="Biologia"
-          variant="primary"
-          class="center m-3"
-        >
-          <b-dropdown-item href="#">Sistema Imunitário</b-dropdown-item>
-          <b-dropdown-item href="#">Ecossistema</b-dropdown-item>
-          <b-dropdown-item href="#">Fundamentos da Ecologia</b-dropdown-item>
-        </b-dropdown>
-      </div>
-      <!-- Materia Ed. Fisica -->
-      <div class="col-5 p-1 d-flex justify-content-center">
-        <img src="../assets/Cópia de ERESUMAO.png" alt="" width="10%" />
-        <b-dropdown
-          id="dropdown-dropright"
-          dropright
-          text="Educação Física"
-          variant="primary"
-          class="center m-3"
-        >
-          <b-dropdown-item href="#">Esporte</b-dropdown-item>
-          <b-dropdown-item href="#">Espetáculo</b-dropdown-item>
-          <b-dropdown-item href="#">Esportes Adaptados</b-dropdown-item>
-        </b-dropdown>
-      </div>
-      <!-- Materia Filosofia -->
-      <div class="col-5 p-1 d-flex justify-content-center">
-        <img src="../assets/Cópia de ERESUMAO.png" alt="" width="10%" />
-        <b-dropdown
-          id="dropdown-dropright"
-          dropright
-          text="Filosofia"
-          variant="primary"
-          class="center m-3"
-        >
-          <b-dropdown-item href="#">Aristóteles</b-dropdown-item>
-          <b-dropdown-item href="#">Racionalismo Moderno</b-dropdown-item>
-          <b-dropdown-item href="#">Filosofia Contemporanea</b-dropdown-item>
-        </b-dropdown>
-      </div>
-      <!-- Materia Física-->
-      <div class="col-5 p-1 d-flex justify-content-center">
-        <img src="../assets/Cópia de ERESUMAO.png" alt="" width="10%" />
-        <b-dropdown
-          id="dropdown-dropright"
-          dropright
-          text="Física"
-          variant="primary"
-          class="center m-3"
-        >
-          <b-dropdown-item href="#">Acustica</b-dropdown-item>
-          <b-dropdown-item href="#">Resistores</b-dropdown-item>
-          <b-dropdown-item href="#">Calometria</b-dropdown-item>
-        </b-dropdown>
-      </div>
-      <!-- Materia Geografia-->
-      <div class="col-5 p-1 d-flex justify-content-center">
-        <img src="../assets/Cópia de ERESUMAO.png" alt="" width="10%" />
-        <b-dropdown
-          id="dropdown-dropright"
-          dropright
-          text="Geografia"
-          variant="primary"
-          class="center m-3"
-        >
-          <b-dropdown-item href="#">Questões Ambientais</b-dropdown-item>
-          <b-dropdown-item href="#">Climatologia</b-dropdown-item>
-          <b-dropdown-item href="#">Urbanização</b-dropdown-item>
-        </b-dropdown>
-      </div>
-      <!-- Materia História-->
-      <div class="col-5 p-1 d-flex justify-content-center">
-        <img src="../assets/Cópia de ERESUMAO.png" alt="" width="10%" />
-        <b-dropdown
-          id="dropdown-dropright"
-          dropright
-          text="História"
-          variant="primary"
-          class="center m-3"
-        >
-          <b-dropdown-item href="#">Segunda Guerra Mundial</b-dropdown-item>
-          <b-dropdown-item href="#">Segundo Reinado</b-dropdown-item>
-          <b-dropdown-item href="#">Revolução Industrial</b-dropdown-item>
-        </b-dropdown>
-      </div>
-      <!-- Materia Inglês -->
-      <div class="col-5 p-1 d-flex justify-content-center">
-        <img src="../assets/Cópia de ERESUMAO.png" alt="" width="10%" />
-        <b-dropdown
-          id="dropdown-dropright"
-          dropright
-          text="Lingua Inglesa"
-          variant="primary"
-          class="center m-3"
-        >
-          <b-dropdown-item href="#">Interpretação</b-dropdown-item>
-        </b-dropdown>
-      </div>
-      <!-- Materia Espanhol -->
-      <div class="col-5 p-1 d-flex justify-content-center">
-        <img src="../assets/Cópia de ERESUMAO.png" alt="" width="10%" />
-        <b-dropdown
-          id="dropdown-dropright"
-          dropright
-          text="Lingua Espanhola"
-          variant="primary"
-          class="center m-3"
-        >
-          <b-dropdown-item href="#">Interpretação</b-dropdown-item>
-        </b-dropdown>
-      </div>
-      <!--Materia-->
-      <div class="col-5 p-1 d-flex justify-content-center">
-        <img src="../assets/Cópia de ERESUMAO.png" alt="" width="10%" />
-        <b-dropdown
-          id="dropdown-dropright"
-          dropright
-          text="História"
-          variant="primary"
-          class="center m-3"
-        >
-          <b-dropdown-item href="#">Segunda Guerra Mundial</b-dropdown-item>
-          <b-dropdown-item href="#">Segundo Reinado</b-dropdown-item>
-          <b-dropdown-item href="#">Revolução Industrial</b-dropdown-item>
-        </b-dropdown>
-      </div>
-      <!-- Materia Lingua Portuguesa -->
-      <div class="col-5 p-1 d-flex justify-content-center">
-        <img src="../assets/Cópia de ERESUMAO.png" alt="" width="10%" />
-        <b-dropdown
-          id="dropdown-dropright"
-          dropright
-          text="Lingua Portuguesa"
-          variant="primary"
-          class="center m-3"
-        >
-          <b-dropdown-item href="#">Crase</b-dropdown-item>
-          <b-dropdown-item href="#">Redação</b-dropdown-item>
-          <b-dropdown-item href="#">Pontuação</b-dropdown-item>
-        </b-dropdown>
-      </div>
-      <!-- Materia Matemática -->
-      <div class="col-5 p-1 d-flex justify-content-center">
-        <img src="../assets/Cópia de ERESUMAO.png" alt="" width="10%" />
-        <b-dropdown
-          id="dropdown-dropright"
-          dropright
-          text="Matemática"
-          variant="primary"
-          class="center m-3"
-        >
-          <b-dropdown-item href="#"
-            >Problema Primeiro e Segundo Grau</b-dropdown-item
-          >
-          <b-dropdown-item href="#">Porcentagem</b-dropdown-item>
-          <b-dropdown-item href="#">Funções</b-dropdown-item>
-        </b-dropdown>
-      </div>
-      <!-- Materia Lingua Portuguesa -->
-      <div class="col-5 p-1 d-flex justify-content-center">
-        <img src="../assets/Cópia de ERESUMAO.png" alt="" width="10%" />
-        <b-dropdown
-          id="dropdown-dropright"
-          dropright
-          text="Quimica"
-          variant="primary"
-          class="center m-3"
-        >
-          <b-dropdown-item href="#">Reações Orgânicas</b-dropdown-item>
-          <b-dropdown-item href="#">Soluç~oes</b-dropdown-item>
-          <b-dropdown-item href="#">Isomeria</b-dropdown-item>
-        </b-dropdown>
-      </div>
-      <!-- Materia sociologia-->
-      <div class="col-5 p-1 d-flex justify-content-center">
-        <img src="../assets/Cópia de ERESUMAO.png" alt="" width="10%" />
-        <b-dropdown
-          id="dropdown-dropright"
-          dropright
-          text="Sociologia"
-          variant="primary"
-          class="center m-3"
-        >
-          <b-dropdown-item href="#">Cultura</b-dropdown-item>
-          <b-dropdown-item href="#">Sociologia Contemporânea</b-dropdown-item>
-          <b-dropdown-item href="#">Politica, poder e estado</b-dropdown-item>
-        </b-dropdown>
-      </div>
+      <br />
+      <ul id="itemList" class="list-group list-group-flush">
+        <li class="list-group-item d-flex justify-content-between">
+          atividade 1
+          <button class="btn btn-outline-primary">Excluir</button>
+        </li>
+        <li class="list-group-item d-flex justify-content-between">
+          atividade 2
+          <button class="btn btn-outline-primary">Excluir</button>
+        </li>
+      </ul>
     </div>
   </div>
 </template>

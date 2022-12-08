@@ -9,7 +9,15 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <li class="nav-item"></li>
         <button
-          class="palavra list-group-item list-group-item-action bg-transparent text-white text-center h5 b-badge mr-3"
+          class="
+            palavra
+            list-group-item list-group-item-action
+            bg-transparent
+            text-white text-center
+            h5
+            b-badge
+            mr-3
+          "
         >
           <router-link
             href="Home.vue"
@@ -20,34 +28,63 @@
         </button>
         <br />
         <button
-          class="palavra list-group-item list-group-item-action bg-transparent text-white h5 text-center"
-          href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiZp5a08rPxAhWHlJUCHZiPBrkQFjAAegQIBRAD&url=https%3A%2F%2Fwww.google.com%2Fcalendar&usg=AOvVaw3DL1RYwWlxKdNRzzOWi7iZ"
+          class="
+            palavra
+            list-group-item list-group-item-action
+            bg-transparent
+            text-white text-center
+            h5
+          "
         >
-          Agenda
+          <router-link
+            href="Agenda.vue"
+            to="/agenda"
+            style="text-decoration: none; color: inherit"
+            >Agenda</router-link
+          >
         </button>
         <button
-          class="palavra list-group-item list-group-item-action bg-transparent text-white text-center h5"
+          class="
+            palavra
+            list-group-item list-group-item-action
+            bg-transparent
+            text-white text-center
+            h5
+          "
         >
           <router-link
             href="Resumos.vue"
             to="/resumos"
             style="text-decoration: none; color: inherit"
-            >Resumos</router-link
+            >Bloco de Notas</router-link
           >
         </button>
         <button
-          class="palavra list-group-item list-group-item-action bg-transparent text-white text-center h5 bg-light"
+          class="
+            palavra
+            list-group-item list-group-item-action
+            bg-transparent
+            text-white text-center
+            h5
+            bg-light
+          "
           variant="light"
         >
           <router-link
             href="bloco.html"
             to="/bloco"
             style="text-decoration: none; color: inherit"
-            >Bloco de Notas</router-link
+            >Resumos</router-link
           >
         </button>
         <button
-          class="palavra list-group-item list-group-item-action bg-transparent text-white text-center h5"
+          class="
+            palavra
+            list-group-item list-group-item-action
+            bg-transparent
+            text-white text-center
+            h5
+          "
         >
           <router-link
             to="/perfil"
@@ -57,14 +94,20 @@
         </button>
         <button
           @click="logout()"
-          class="palavra list-group-item list-group-item-action bg-transparent text-white text-center h5"
+          class="
+            palavra
+            list-group-item list-group-item-action
+            bg-transparent
+            text-white text-center
+            h5
+          "
         >
           Sair
         </button>
       </div>
     </nav>
     <b-container class="d-flex flex-column jusrify-content-center">
-      <h1 class="mt-4 cor text-center cor">Bloco de Notas.</h1>
+      <h1 class="mt-4 cor text-center cor">RESUMOS</h1>
       <br />
       <h6 id="userInfo" class="color text-center color card-subtitle mb-5">
         Escreva seus resumos a baixo
