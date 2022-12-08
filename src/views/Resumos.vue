@@ -110,7 +110,7 @@
       <h1 class="mt-4 cor text-center cor">Bloco de notas</h1>
       <br />
       <h6 id="userInfo" class="color text-center color card-subtitle mb-5">
-        Escreva suas anotações a baixo
+        Escreva suas anotações abaixo
       </h6>
       <div class="row">
         <b-form-textarea

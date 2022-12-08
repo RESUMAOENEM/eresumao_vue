@@ -110,7 +110,7 @@
       <h1 class="mt-4 cor text-center cor">RESUMOS</h1>
       <br />
       <h6 id="userInfo" class="color text-center color card-subtitle mb-5">
-        Escreva seus resumos a baixo
+        Escreva seus resumos abaixo
       </h6>
       <div class="row">
         <b-form-input
@@ -138,6 +138,8 @@
         <b-card class="p-3 mx-2" :title="oresumo.titulo">
           <br />
           <b-card-text v-text="oresumo.conteudo"></b-card-text>
+          <button class="btn btn-primary" @click="editResumo">Editar</button>
+          <button class="btn btn-danger" @click="deleteResumo">Excluir</button>
         </b-card>
       </b-col>
     </b-row>
@@ -146,6 +148,8 @@
 
 <script>
 import { mapActions, mapState } from "vuex";
+import resumo from "../api/resumo";
+import axios from "axios";
 
 export default {
   name: "bloco",
@@ -163,7 +167,7 @@ export default {
     ...mapActions("resumo", ["pegarResumos"]),
     ...mapActions("resumo", ["criarResumo"]),
 
-    async adicionarResumo() {
+    async adicionarResumo(resumo) {
       try {
         await this.criarResumo(this.resumo);
       } catch (e) {
@@ -171,6 +175,17 @@ export default {
       }
     },
 
+    async editResumo(resumo) {
+      try {
+        await axios.get(`api/resumos/${id_resumo}/`);
+      } catch (e) {
+        console.log(e);
+      }
+    },
+
+    async deleteResumo(resumo) {
+      await axios.delete("api/resumos/", id_resumo);
+    },
     async sair() {
       try {
         await this.logout(this.usuario);
